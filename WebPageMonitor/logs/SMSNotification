@@ -1,0 +1,2 @@
+27/Feb/2019 22:19:24   - ERROR [WebPageMonitor:61] Its different
+27/Feb/2019 22:19:24   - ERROR [WebPageMonitor:62] Line : 62,         <label onClick="window.open('Pdfs/0218.pdf;OSAR_SESSIONID=AC2578E97E3EF2F9BFB8B213DC74EC90');" style="cursor:pointer">View Advertisement </label> vs         <label onClick="window.open('Pdfs/0218.pdf;OSAR_SESSIONID=C856F9EC1042D39B40CED350FAFC85D7');" style="cursor:pointer">View Advertisement </label>
