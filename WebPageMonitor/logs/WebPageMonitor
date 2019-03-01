@@ -1,14 +1,4 @@
-01/Mar/2019 08:18:53   - INFO  [WebPageMonitor:35] Two files are same
-01/Mar/2019 08:53:19   - ERROR [WebPageMonitor:72] java.io.FileNotFoundException: Monitor.ErrorMessage (The system cannot find the file specified)
-01/Mar/2019 08:53:19   - INFO  [WebPageMonitor:152] http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:53:23   - ERROR [WebPageMonitor:158] java.io.IOException: Server returned HTTP response code: 400 for URL: http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:54:18   - ERROR [WebPageMonitor:73] java.io.FileNotFoundException: Monitor.ErrorMessage (The system cannot find the file specified)
-01/Mar/2019 08:54:18   - INFO  [WebPageMonitor:153] http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:54:19   - ERROR [WebPageMonitor:159] java.io.IOException: Server returned HTTP response code: 400 for URL: http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:54:47   - ERROR [WebPageMonitor:73] java.io.FileNotFoundException: Monitor.ErrorMessage (The system cannot find the file specified)
-01/Mar/2019 08:54:47   - INFO  [WebPageMonitor:153] http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:54:47   - ERROR [WebPageMonitor:159] java.io.IOException: Server returned HTTP response code: 400 for URL: http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:56:22   - ERROR [WebPageMonitor:73] java.io.FileNotFoundException: Monitor.ErrorMessage (The system cannot find the file specified)
-01/Mar/2019 08:56:22   - INFO  [WebPageMonitor:153] http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:56:22   - ERROR [WebPageMonitor:159] java.io.IOException: Server returned HTTP response code: 400 for URL: http://mobi1.blogdns.com/httpmsgid/SMSSenders.aspx?UserID=SpaceTrns&UserPass=Misd@123&Message=Monitor.ErrorMessage (The system cannot find the file specified)&MobileNo=8905017617&GSMID=SACADM
-01/Mar/2019 08:57:12   - INFO  [WebPageMonitor:41] Two files are same
+02/Mar/2019 00:07:43   - INFO  [WebPageMonitor:49] Two files are same
+02/Mar/2019 00:08:44   - INFO  [WebPageMonitor:49] Two files are same
+02/Mar/2019 00:09:07   - INFO  [WebPageMonitor:49] Two files are same
+02/Mar/2019 00:10:08   - INFO  [WebPageMonitor:49] Two files are same
