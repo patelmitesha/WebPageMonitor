@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -46,7 +47,7 @@ public class WebPageMonitor {
 				new_response = new_response.replaceAll(loadConfig.getElement("Monitor.IgnorePattern"), "");
 
 				if (old_response.equalsIgnoreCase(new_response)) {
-					logger.info("Two files are same");
+					logger.info("No change detected");
 				} else {
 					logger.error("Its different");
 					logger.error("Old : " + old_response);
@@ -68,8 +69,8 @@ public class WebPageMonitor {
 
 
 				for (int i = (delay*60); i > 0; i--) {
-					System.out.print("\rNext try in "+i+" Sec  ");
-					Thread.sleep(delay*1000);
+					System.out.print("\rNext try in "+i+" Sec..  ");
+					Thread.sleep(1000);
 				}
 				System.out.print("\r");
 
