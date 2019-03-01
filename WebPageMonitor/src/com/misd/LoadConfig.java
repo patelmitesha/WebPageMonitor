@@ -19,7 +19,10 @@ public class LoadConfig {
 		
 		input.close();
 		
-	    
+	}
+	
+	public Properties getPropreties() {
+		return prop;
 	}
 	
 	public String getElement(String propertyName) {

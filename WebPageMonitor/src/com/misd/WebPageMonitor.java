@@ -7,7 +7,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.net.ssl.HttpsURLConnection;
 
 import org.apache.commons.io.IOUtils;
@@ -19,16 +27,14 @@ Logger.getLogger(WebPageMonitor.class);
 
      static LoadConfig loadConfig=null;
      public static void main(String[] args) {
-         // TODO Auto-generated method stub
+
          try {
 
              loadConfig=new LoadConfig("MonitorConfig.properties");
              
-             String old_response = getText(loadConfig.getElement("Monitor.URL"));
-             
+             String old_response = getText(loadConfig.getElement("Monitor.URL"));             
 
              while(true) {
-
             	 
                  String new_response = getText(loadConfig.getElement("Monitor.URL"));
                  if(old_response.equalsIgnoreCase(new_response)) {
@@ -38,18 +44,81 @@ Logger.getLogger(WebPageMonitor.class);
                      logger.error("Old : "+old_response);
                      logger.error("New : "+new_response);
                      
-                     String msg=URLEncoder.encode("There is a difference in two request. Please, check the site", "UTF-8");;
-                     sendSMS(msg);
+                     String msg2send=loadConfig.getElement("Monitor.ErrorMessage");
+                     String msg=URLEncoder.encode(msg2send, "UTF-8");;
+                     if(sendSMS(msg)) {
+                    	 logger.info("Successfully send sms : "+msg);
+                     }else {
+                    	 logger.info("Unable to send sms : "+msg);
+                     }
+                     
+                     if(sendEMail("WebPageMonitor",msg)) {
+                    	 logger.info("Successfully send sms : "+msg);
+                     }else {
+                    	 logger.info("Unable to send sms : "+msg);
+                     }
+
                  }
                  
                  old_response = new_response;
             	 Thread.sleep(300000);                 
              }
+             
+
+
+
+        	 
                       }catch(Exception e) {
         	 logger.error(e);
              e.printStackTrace();
              sendSMS(e.getMessage());
+        	 sendEMail("WebPageMonitor",e.getMessage());
+             
          }
+
+     
+     }
+     
+     public static boolean sendEMail(String subject,String msg) {
+
+  			Properties props = new Properties();
+  			
+  			loadConfig.getElement("SMSGateway.URL");
+  			
+  			
+  			props.put("mail.smtp.host", loadConfig.getElement("Mail.Smtphost"));
+  			props.put("mail.smtp.socketFactory.port", loadConfig.getElement("Mail.Smtpport"));
+  			props.put("mail.smtp.socketFactory.class",
+  					"javax.net.ssl.SSLSocketFactory");
+  			props.put("mail.smtp.auth", loadConfig.getElement("Mail.Smtp-auth"));
+  			props.put("mail.smtp.port", loadConfig.getElement("Mail.Smtpport"));
+
+  			Session session = Session.getDefaultInstance(props,
+  				new javax.mail.Authenticator() {
+  					protected PasswordAuthentication getPasswordAuthentication() {
+  						return new PasswordAuthentication(loadConfig.getElement("Mail.Username"),loadConfig.getElement("Mail.Password"));
+  					}
+  				});
+
+  			try {
+
+  				Message message = new MimeMessage(session);
+  				message.setFrom(new InternetAddress(loadConfig.getElement("Mail.Fromaddress")));
+  				message.setRecipients(Message.RecipientType.TO,
+  						InternetAddress.parse(loadConfig.getElement("Mail.Toaddress")));
+  				message.setSubject(subject);
+  				message.setText(msg);
+
+  				Transport.send(message);
+
+  				System.out.println("Done");
+
+  			} catch (MessagingException e) {
+  				logger.error(e);
+  				e.printStackTrace();
+  				return false;
+  			}
+  			return true;
      }
      
      private static boolean sendSMS(String message) {
